@@ -83,11 +83,18 @@ if uploaded_file is not None and client is not None:
             {"role": "system", "content": prompt},
             {"role": "user", "content": json_string},
         ],
-        temperature=0.5,
-        max_tokens=4096,
+        options={
+            "temperature": 0.1,
+            "max_tokens": 4500,
+            "top_p": 0.9,
+        }
     )
     # response in st markdown
     st.markdown("**Synthèse hebdomadaire générée :**")
-    st.markdown(response.content, unsafe_allow_html=True)
+    # Extract the assistant's message content from the response
+    if hasattr(response, "message") and hasattr(response.message, "content"):
+        st.markdown(response.message.content, unsafe_allow_html=True)
+    else:
+        st.markdown(str(response), unsafe_allow_html=True)
 else:
     st.info("Please upload an Excel file to proceed.")
