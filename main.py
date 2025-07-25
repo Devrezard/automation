@@ -18,7 +18,7 @@ if url != "":
 else:
     client = Client()
 
-st.selectbox("Select the model:", model_list)
+model_selected = st.selectbox("Select the model:", model_list)
 
 uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx"])
 if uploaded_file is not None and client is not None:
@@ -78,7 +78,7 @@ if uploaded_file is not None and client is not None:
     """
     # response
     response = client.chat(
-        model=st.selectbox("Select the model:", ollama.list()),
+        model=str(model_selected),
         messages=[
             {"role": "system", "content": prompt},
             {"role": "user", "content": json_string},
