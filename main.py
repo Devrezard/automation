@@ -2,17 +2,21 @@ import json
 import streamlit as st
 import ollama
 from ollama import Client
+import httpx
 
 # type :
 url = st.text_input(
     "Enter Ollama server URL:", "", placeholder="http://localhost:11434"
 )
-if url:
-    client = Client(url=url)
-    model_list = ollama.list()
+
+model_list = []
+if url != "":
+    client = Client(host=url)
+    ollama_list = httpx.get(f"{url}/api/tags").json()
+    # get all name of all models
+    model_list = [model["name"] for model in ollama_list["models"]]
 else:
     client = Client()
-    model_list = []
 
 st.selectbox("Select the model:", model_list)
 
