@@ -1,0 +1,2 @@
+# Documentation pour le projet Streamlit
+Ce document fournit des instructions pour configurer et exécuter l'application Streamlit dans un conteneur Docker. Il inclut des options pour une configuration simple, l'utilisation de Docker Compose, et l'intégration avec Ollama.
