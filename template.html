@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthèse Hebdomadaire</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #2c3e50;
+        border-bottom: #2c3e50 1px solid;
+        padding-bottom: 2px;
+        font-size: 26px;
+    }
+
+    h2 {
+        color: #34495e;
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <h1>Synthèse Hebdomadaire <br>
+        du {{date}}</h1>
+    </h1>
+    <p>
+        {% markdown %}
+        -----
+        {{synthese}}
+        {% endmarkdown %}
+    </p>
+</body>
+
+</html>

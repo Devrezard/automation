@@ -5,7 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "jinja-markdown>=1.210911",
+    "jinja2>=3.1.6",
     "ollama>=0.5.1",
     "openpyxl>=3.1.5",
     "streamlit>=1.47.0",
+    "weasyprint>=66.0",
 ]
